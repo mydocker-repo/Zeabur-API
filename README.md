@@ -15,7 +15,7 @@ zeabur API 操作实例
 #示例token
 sk-gx20c4k****qpk4z
 ```
-### 1. 获取可用区域
+### 1. 获取区域
 > 命令
 ```bash
 curl --request POST \
@@ -68,6 +68,19 @@ curl --request POST \
     ]
   }
 }
+```
+> 目前免费层可用的区域[2025-10]
+```json
+[
+  {
+    "name": "California, United States",
+    "id": "sfo1"
+  },
+  {
+    "name": "Jakarta, Indonesia",
+    "id": "cgk1"
+  }
+]
 ```
 ### 2. 根据区域[id]获取该区域下的项目和服务
 > 命令
