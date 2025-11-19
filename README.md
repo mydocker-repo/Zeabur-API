@@ -78,6 +78,22 @@ curl --request POST \
   --header 'Content-Type: application/json' \
   --data '{"query":"query{\n  projects(region: \"sjc1\") {\n edges {\n node {\n name\n _id\n environments {\n _id\n}\n services {\n name\n _id\n}\n}\n}\n}\n}\n"}'
 ```
+> javascript
+```javascript
+const api='https://api.zeabur.com/graphql'
+async function query_regions(token,regionID) {
+  let data = { "query": `query{\n  projects(region: \"${regionID}\") {\n edges {\n node {\n name\n _id\n environments {\n _id\n}\n services {\n name\n _id\n}\n}\n}\n}\n}`}
+  let res = await fetch(api, {
+    method: 'POST',
+    headers: {
+      "Authorization": `Bearer ${token}`,
+      "content-type": "application/json"
+    },
+    body: JSON.stringify(data)
+  }).then(res => res.json())
+  return res
+}
+```
 > 结果: 包含常用的projectID，environmentID,serviceID
 ```json
 {
