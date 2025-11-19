@@ -73,8 +73,8 @@ curl --request POST \
 ```json
 [
   {
-    "name": "California, United States",
-    "id": "sfo1"
+    "name": "Silicon Valley, United States",
+    "id": "sjc1"
   },
   {
     "name": "Jakarta, Indonesia",
