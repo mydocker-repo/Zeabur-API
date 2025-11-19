@@ -142,3 +142,30 @@ curl --request POST \
   }
 }
 ```
+### 3. 重启服务
+> 命令
+```bash
+curl --request POST \
+  --url https://api.zeabur.com/graphql \
+  --header 'Authorization: Bearer sk-gx20c4k****qpk4z' \
+  --header 'Content-Type: application/json' \
+  --data '{"query":"mutation{\n restartService(serviceID: \"691576bad*****f71da270ea\", environmentID: \"691576ba*****fb3e1248a19\")\n}\n"}'
+```
+> 结果
+```json
+{
+  "data": {
+    "restartService": true
+  }
+}
+```
+
+### 4. 停止服务
+> 命令
+```
+curl --request POST \
+  --url https://api.zeabur.com/graphql \
+  --header 'Authorization: Bearer sk-gx20c4k****qpk4z' \
+  --header 'Content-Type: application/json' \
+  --data '{"query":"mutation{\n suspendService(serviceID: \"691576bad*****f71da270ea\", environmentID: \"691576ba*****fb3e1248a19\")\n}\n"}'
+```
