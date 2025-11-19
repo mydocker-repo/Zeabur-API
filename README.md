@@ -3,6 +3,12 @@ zeabur API 操作实例
 > 官方文档： https://zeabur.com/docs/zh-CN/developer/public-api
 >
 > GraphQL API ：https://studio.apollographql.com/public/zeabur/variant/main/explorer
+## API使用技巧
+1. 登录zeabur
+2. 使用官方文档中的链接打开或直接打开GraphQL API；默认加载api密钥
+3. 从API Development文档选择要进行的操作：query 或 mutation，并配置相关选项
+4. 执行
+5. 浏览器-开发者工具-网络；查看`graphql`请求信息；复制请求字符串[data需要的内容]
 
 ## API密钥
 ```
