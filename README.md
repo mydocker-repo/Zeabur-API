@@ -63,3 +63,82 @@ curl --request POST \
   }
 }
 ```
+### 2. 根据区域[id]获取该区域下的项目和服务
+> 命令
+```bash
+curl --request POST \
+  --url https://api.zeabur.com/graphql \
+  --header 'Authorization: Bearer sk-gx20c4k****qpk4z' \
+  --header 'Content-Type: application/json' \
+  --data '{"query":"query{\n  projects(region: \"sjc1\") {\n edges {\n node {\n name\n _id\n environments {\n _id\n}\n services {\n name\n _id\n}\n}\n}\n}\n}\n"}'
+```
+> 结果: 包含常用的projectID，environmentID,serviceID
+```json
+{
+  "data": {
+    "projects": {
+      "edges": [
+        {
+          "node": {
+            "name": "nginx",
+            "_id": "68ef0014a2*****97899e638",
+            "environments": [
+              {
+                "_id": "68ef001*****ab999f05f2d1"
+              }
+            ],
+            "services": [
+              {
+                "name": "nginx",
+                "_id": "68ef0014*****597899e639"
+              },
+              {
+                "name": "v2ray",
+                "_id": "68ef16b14*****10da4d5a7e"
+              },
+              {
+                "name": "sing-box",
+                "_id": "68ef5fdf46*****10da4d6812"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "name": "jupyterlab",
+            "_id": "690ae4b5c4*****43e2b805f",
+            "environments": [
+              {
+                "_id": "690ae4b5*****71f1baa22cf"
+              }
+            ],
+            "services": [
+              {
+                "name": "JupyterLab",
+                "_id": "690ae4b6*****ef43e2b8060"
+              }
+            ]
+          }
+        },
+        {
+          "node": {
+            "name": "material-for-mkdocs",
+            "_id": "691576bad7*****71da270e9",
+            "environments": [
+              {
+                "_id": "691576ba*****fb3e1248a19"
+              }
+            ],
+            "services": [
+              {
+                "name": "mkdocs",
+                "_id": "691576bad*****f71da270ea"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
+```
